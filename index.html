@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER | 極簡質感香氛官網</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <button class="nav-menu-trigger" id="menuBtn">EXPLORE</button>
+            <div class="logo">AETHER</div>
+            <div class="nav-right">
+                <button id="searchBtn">SEARCH</button>
+                <button id="bagBtn">BAG (1)</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="global-overlay" id="globalOverlay"></div>
+
+    <div class="mega-menu" id="megaMenu">
+        <div class="mega-menu-grid">
+            <div class="mega-column">
+                <h3>香水 / PERFUME</h3>
+                <ul>
+                    <li><a href="#"><span class="en">Eau de Parfum</span> <span class="zh">經典淡香精系列</span></a></li>
+                    <li><a href="#"><span class="en">Solid Perfume</span> <span class="zh">隨身固態香膏</span></a></li>
+                    <li><a href="#"><span class="en">Discovery Kit</span> <span class="zh">針管香氛體驗組</span></a></li>
+                </ul>
+            </div>
+            <div class="mega-column">
+                <h3>擴香瓶 / DIFFUSER</h3>
+                <ul>
+                    <li><a href="#"><span class="en">Room Diffuser</span> <span class="zh">室內竹香擴香</span></a></li>
+                    <li><a href="#"><span class="en">Refill Bottle</span> <span class="zh">環保補充瓶</span></a></li>
+                    <li><a href="#"><span class="en">Diffuser Reeds</span> <span class="zh">天然蘆葦擴香棒</span></a></li>
+                </ul>
+            </div>
+            <div class="mega-column">
+                <h3>香氛蠟燭 / CANDLE</h3>
+                <ul>
+                    <li><a href="#"><span class="en">Soy Candle</span> <span class="zh">天然大豆蠟燭</span></a></li>
+                    <li><a href="#"><span class="en">Travel Tin Candle</span> <span class="zh">隨行旅行香氛蠟</span></a></li>
+                </ul>
+            </div>
+            <div class="mega-column">
+                <h3>日常配件 / ACCESSORIES</h3>
+                <ul>
+                    <li><a href="#"><span class="en">Candle Care Kit</span> <span class="zh">滅燭剪與護理組合</span></a></li>
+                    <li><a href="#"><span class="en">Linen Spray</span> <span class="zh">織物除臭清新噴霧</span></a></li>
+                    <li><a href="#"><span class="en">Gift Packaging</span> <span class="zh">品牌高級禮品包裝</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-drawer" id="searchDrawer">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for scents, products..." id="searchInput">
+            <div class="search-hints">
+                <p>熱門搜尋：</p>
+                <span>#木質調</span>
+                <span>#滅燭剪</span>
+                <span>#大豆蠟燭</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bag-drawer" id="bagDrawer">
+        <div class="bag-header">
+            <h3>SHOPPING BAG (1)</h3>
+            <button class="close-bag-btn" id="closeBagBtn">CLOSE ×</button>
+        </div>
+        
+        <div class="cart-items-list">
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100">
+                        <rect width="100%" height="100%" fill="#E3E4DF"/>
+                        <circle cx="50" cy="55" r="30" fill="#BFD0BA" opacity="0.2" filter="blur(5px)"/>
+                        <rect x="30" y="42" width="40" height="48" fill="#FAF9F5" rx="2" stroke="#D5D4CE" stroke-width="0.5"/>
+                        <circle cx="50" cy="30" r="10" fill="#EAEAE5" stroke="#DCDCD7" stroke-width="0.5"/>
+                        <rect x="46" y="37" width="8" height="5" fill="#D8D7D2"/>
+                        <rect x="34" y="48" width="32" height="38" fill="#EAEBE5" fill-opacity="0.5" rx="1"/>
+                        <line x1="50" y1="42" x2="50" y2="82" stroke="#C0BFB9" stroke-width="0.5"/>
+                        <rect x="36" y="54" width="28" height="26" fill="#FDFCF7" stroke="#ECEBE5" stroke-width="0.3"/>
+                        <text x="50" y="64" text-anchor="middle" font-family="Georgia" font-size="4" font-weight="bold" fill="#2C2C2C">AE</text>
+                        <text x="50" y="72" text-anchor="middle" font-family="Helvetica" font-size="3" fill="#8A9A86">N°.01</text>
+                    </svg>
+                </div>
+                <div class="cart-item-detail">
+                    <p class="cart-item-name">NO.01 迷霧森林淡香精</p>
+                    <p class="cart-item-meta">規格: 50ml / 數量: 1</p>
+                    <p class="cart-item-price">NT$ 2,480</p>
+                </div>
+            </div>
+
+            <div class="cart-upsell">
+                <p class="upsell-title">RECOMMENDED ACCESSORY</p>
+                <div class="upsell-box">
+                    <div class="upsell-info">
+                        霧黑金屬滅燭三件組
+                        <span>加購價 NT$ 1,200</span>
+                    </div>
+                    <button class="add-upsell-btn">+ ADD</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bag-footer">
+            <div class="subtotal-box">
+                <span>小計 / SUBTOTAL</span>
+                <span class="subtotal-price">NT$ 2,480</span>
+            </div>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>A scent of mindfulness.</h2>
+            <p>將時間，揮霍在喜歡的味道上。</p>
+            <button class="btn-explore" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'});">尋找你的專屬香氣</button>
+        </div>
+    </section>
+
+    <section class="showcase-section">
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <img src="image/香水.png" alt="Woody" class="showcase-img">
+                <div class="showcase-overlay">
+                    <div class="showcase-tag">Collection</div>
+                    <div class="showcase-title">個人香水</div>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="image/居家擴香.png" alt="Home" class="showcase-img">
+                <div class="showcase-overlay">
+                    <div class="showcase-tag">Collection</div>
+                    <div class="showcase-title">居家擴香</div>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="image/蠟燭.png" alt="Candle" class="showcase-img">
+                <div class="showcase-overlay">
+                    <div class="showcase-tag">Collection</div>
+                    <div class="showcase-title">香氛蠟燭</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2>精選核心單品與包裝</h2>
+            <p>簡單、純粹、融入日常的氣味美學</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <svg class="svg-placeholder" viewBox="0 0 400 400">
+                        <defs>
+                            <linearGradient id="mistBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#E3E4DF"/>
+                                <stop offset="50%" stop-color="#D7D8D2"/>
+                                <stop offset="100%" stop-color="#C5C7BF"/>
+                            </linearGradient>
+                            <linearGradient id="glassShine" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+                                <stop offset="30%" stop-color="#ffffff" stop-opacity="0.1"/>
+                                <stop offset="70%" stop-color="#ffffff" stop-opacity="0.1"/>
+                                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#mistBg)"/>
+                        <circle cx="200" cy="180" r="140" fill="#BFD0BA" opacity="0.15" filter="blur(20px)"/>
+                        <ellipse cx="200" cy="330" rx="160" ry="25" fill="#423E3B" opacity="0.4"/>
+                        <path d="M40 320 Q 150 310, 240 325 T 370 315 L 360 345 Q 200 355, 40 340 Z" fill="#5A524E"/>
+                        <path d="M60 321 Q 120 315, 180 322" stroke="#7A6F6A" stroke-width="2" fill="none" opacity="0.5"/>
+                        <rect x="195" y="140" width="125" height="160" fill="#FBFBFA" rx="2"/>
+                        <rect x="195" y="140" width="125" height="160" fill="none" stroke="#E6E5E0" stroke-width="1"/>
+                        <path d="M195 240 L 320 240" stroke="#E2DEC9" stroke-width="1" stroke-dasharray="1 1"/>
+                        <text x="257" y="200" text-anchor="middle" font-family="Georgia" font-size="15" fill="#2C2C2C" letter-spacing="3">AETHER</text>
+                        <text x="257" y="222" text-anchor="middle" font-family="Helvetica" font-size="8" fill="#8A9A86" letter-spacing="1">NO.01</text>
+                        <circle cx="300" cy="165" r="7" fill="none" stroke="#D1C39A" stroke-width="0.7"/>
+                        <text x="300" y="167.5" text-anchor="middle" font-family="Georgia" font-size="7" fill="#D1C39A">A</text>
+                        <rect x="95" y="195" width="85" height="105" fill="#FAF9F5" fill-opacity="0.85" rx="4" stroke="#D5D4CE" stroke-width="1"/>
+                        <rect x="95" y="195" width="85" height="105" fill="url(#glassShine)"/>
+                        <circle cx="137.5" cy="168" r="23" fill="#EAEAE5" stroke="#DCDCD7" stroke-width="1"/>
+                        <rect x="129" y="185" width="17" height="11" fill="#D8D7D2"/>
+                        <rect x="103" y="210" width="69" height="82" fill="#EAEBE5" fill-opacity="0.4" rx="2"/>
+                        <line x1="137.5" y1="195" x2="137.5" y2="285" stroke="#C0BFB9" stroke-width="1.5" opacity="0.7"/>
+                        <rect x="107" y="222" width="61" height="58" fill="#FDFCF7" rx="1" stroke="#ECEBE5" stroke-width="0.5"/>
+                        <text x="137.5" y="242" text-anchor="middle" font-family="Georgia" font-size="10" fill="#2C2C2C" font-weight="bold" letter-spacing="1">AETHER</text>
+                        <text x="137.5" y="256" text-anchor="middle" font-family="Helvetica" font-size="7" fill="#555555" letter-spacing="0.5">NO.01</text>
+                        <text x="137.5" y="268" text-anchor="middle" font-family="Helvetica" font-size="5" fill="#767676" letter-spacing="0.2">THE MIST FOREST</text>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-tag">Perfume</p>
+                    <h3 class="product-name">NO.01 迷霧森林淡香精</h3>
+                    <p class="product-desc">前調帶有清冷雪松與濕潤青苔，附贈品牌極簡白金燙印硬殼禮盒。</p>
+                    <p class="product-price">NT$ 2,480</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <svg class="svg-placeholder" viewBox="0 0 400 400">
+                        <defs>
+                            <linearGradient id="warmBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#EAE5DC"/>
+                                <stop offset="100%" stop-color="#C6BEB3"/>
+                            </linearGradient>
+                            <linearGradient id="amberGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#542B0C"/>
+                                <stop offset="25%" stop-color="#804216"/>
+                                <stop offset="75%" stop-color="#61310E"/>
+                                <stop offset="100%" stop-color="#3A1D06"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#warmBg)"/>
+                        <circle cx="320" cy="100" r="180" fill="#FFECC7" opacity="0.25" filter="blur(30px)"/>
+                        <ellipse cx="160" cy="335" rx="85" ry="18" fill="#1A1A1A"/>
+                        <ellipse cx="160" cy="331" rx="85" ry="18" fill="#2E2E2E" stroke="#444" stroke-width="0.5"/>
+                        <rect x="230" y="150" width="115" height="165" fill="#262626" rx="3"/>
+                        <rect x="230" y="150" width="115" height="165" fill="none" stroke="#333" stroke-width="1"/>
+                        <path d="M230 150 L345 150 L345 190 L230 190 Z" fill="#917A54" fill-opacity="0.9"/>
+                        <text x="287.5" y="174" text-anchor="middle" font-family="Helvetica" font-size="8" fill="#FFF" letter-spacing="1">MIDSOMMAR</text>
+                        <text x="287.5" y="240" text-anchor="middle" font-family="Georgia" font-size="14" fill="#B5A27F" letter-spacing="3">AETHER</text>
+                        <line x1="250" y1="255" x2="325" y2="255" stroke="#444" stroke-width="0.5"/>
+                        <text x="287.5" y="272" text-anchor="middle" font-family="Helvetica" font-size="7" fill="#888" letter-spacing="0.5">ROOM DIFFUSER</text>
+                        <line x1="160" y1="250" x2="105" y2="110" stroke="#111111" stroke-width="2.5"/>
+                        <line x1="160" y1="250" x2="125" y2="95" stroke="#191919" stroke-width="2.5"/>
+                        <line x1="160" y1="250" x2="152" y2="85" stroke="#0A0A0A" stroke-width="2.5"/>
+                        <line x1="160" y1="250" x2="178" y2="90" stroke="#151515" stroke-width="2.5"/>
+                        <line x1="160" y1="250" x2="205" y2="105" stroke="#1A1A1A" stroke-width="2.5"/>
+                        <line x1="160" y1="250" x2="218" y2="130" stroke="#222222" stroke-width="2.5"/>
+                        <rect x="146" y="222" width="28" height="14" fill="#111" rx="1"/>
+                        <rect x="143" y="217" width="34" height="6" fill="#A8946E" rx="0.5"/>
+                        <path d="M120 252 Q 120 232, 142 232 L 178 232 Q 200 232, 200 252 L 204 305 Q 204 322, 160 322 Q 116 322, 116 305 Z" fill="url(#amberGlass)" stroke="#261203" stroke-width="0.5"/>
+                        <path d="M121 255 Q 160 260, 199 255" stroke="#D38A4E" stroke-width="1" fill="none" opacity="0.4"/>
+                        <rect x="134" y="254" width="52" height="48" fill="#1C1C1C" rx="1"/>
+                        <text x="160" y="274" text-anchor="middle" font-family="Georgia" font-size="8" fill="#C9B693" letter-spacing="1">AETHER</text>
+                        <line x1="144" y1="282" x2="176" y2="282" stroke="#444" stroke-width="0.5"/>
+                        <text x="160" y="292" text-anchor="middle" font-family="Helvetica" font-size="5" fill="#A0A0A0" letter-spacing="0.2">NO.07 MIDNIGHT</text>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-tag">Room Diffuser</p>
+                    <h3 class="product-name">NO.07 微醺深夜室內擴香</h3>
+                    <p class="product-desc">沉穩木質與琥珀微醺感，搭配霧黑金屬飾邊的高質感束口包裝外盒。</p>
+                    <p class="product-price">NT$ 1,880</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <svg class="svg-placeholder" viewBox="0 0 400 400">
+                        <defs>
+                            <linearGradient id="cementLayer" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#EAEAEA"/>
+                                <stop offset="100%" stop-color="#C2C2C2"/>
+                            </linearGradient>
+                            <radialGradient id="candleGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#FFEAD2" stop-opacity="1"/>
+                                <stop offset="40%" stop-color="#FFC893" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="#FFDDBE" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#cementLayer)"/>
+                        <rect x="220" y="115" width="115" height="150" fill="#EFECE3" rx="1"/>
+                        <rect x="220" y="115" width="115" height="150" fill="none" stroke="#DFDBCF" stroke-width="1"/>
+                        <text x="277.5" y="190" text-anchor="middle" font-family="Georgia" font-size="14" fill="#828077" letter-spacing="4">AETHER</text>
+                        <circle cx="277.5" cy="142" r="10" fill="none" stroke="#D3CFC3" stroke-width="1"/>
+                        <text x="277.5" y="145.5" text-anchor="middle" font-family="Georgia" font-size="10" fill="#D3CFC3">A</text>
+                        <ellipse cx="170" cy="330" rx="65" ry="14" fill="#9E9E9E" opacity="0.4"/>
+                        <path d="M110 215 Q 170 220, 230 215 L 225 315 Q 170 326, 115 315 Z" fill="#F4F2EB" stroke="#E5E2D9" stroke-width="1"/>
+                        <ellipse cx="170" cy="217" rx="56" ry="7" fill="#E8E5DC"/>
+                        <ellipse cx="170" cy="217" rx="35" ry="4" fill="#D8D4C9"/>
+                        <circle cx="170" cy="195" r="45" fill="url(#candleGlow)"/>
+                        <line x1="170" y1="217" x2="170" y2="202" stroke="#222" stroke-width="2"/>
+                        <path d="M170 180 C165 195, 167 203, 170 203 C173 203, 175 195, 170 180 Z" fill="#FFA344"/>
+                        <path d="M170 187 C168 195, 169 201, 170 201 C171 201, 172 195, 170 187 Z" fill="#FFF5BD"/>
+                        <text x="170" y="270" text-anchor="middle" font-family="Georgia" font-size="12" fill="#B3B0A5" font-weight="bold" letter-spacing="2">AETHER</text>
+                        <path d="M245 305 L 295 285" stroke="#2D2D2D" stroke-width="4" stroke-linecap="round"/>
+                        <rect x="235" y="295" width="16" height="18" fill="#1C1C1C" rx="1" transform="rotate(15 235 295)"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-tag">Scented Candle</p>
+                    <h3 class="product-name">NO.05 靜謐雪松大豆蠟燭</h3>
+                    <p class="product-desc">100%天然大豆蠟與不規則手工陶瓷杯，附帶原色鋼印質感包裝盒。</p>
+                    <p class="product-price">NT$ 1,200</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <svg class="svg-placeholder" viewBox="0 0 400 400">
+                        <rect width="100%" height="100%" fill="#EFECE6"/>
+                        <line x1="0" y1="0" x2="400" y2="400" stroke="#E6E1D7" stroke-width="0.5" stroke-dasharray="2 4"/>
+                        <line x1="400" y1="0" x2="0" y2="400" stroke="#E6E1D7" stroke-width="0.5" stroke-dasharray="2 4"/>
+                        <rect x="180" y="130" width="175" height="120" fill="#1F1F1F" rx="3" transform="rotate(-8 180 130)"/>
+                        <rect x="190" y="140" width="155" height="100" fill="#121212" rx="1" transform="rotate(-8 180 130)"/>
+                        <text x="265" y="125" text-anchor="middle" font-family="Georgia" font-size="11" fill="#444" font-weight="bold" letter-spacing="3" transform="rotate(-8 265 125)">AETHER</text>
+                        <circle cx="110" cy="315" r="9" fill="none" stroke="#282828" stroke-width="3"/>
+                        <circle cx="130" cy="320" r="9" fill="none" stroke="#282828" stroke-width="3"/>
+                        <line x1="117" y1="310" x2="160" y2="210" stroke="#282828" stroke-width="3.5"/>
+                        <line x1="124" y1="313" x2="162" y2="210" stroke="#282828" stroke-width="3.5"/>
+                        <circle cx="155" cy="225" r="4" fill="#333"/>
+                        <path d="M160 210 Q170 200, 165 190 L150 200 Z" fill="#282828"/>
+                        <line x1="100" y1="260" x2="210" y2="260" stroke="#232323" stroke-width="3"/>
+                        <path d="M90 260 L93 245 Q100 238, 110 240 L110 260 Z" fill="#232323" transform="rotate(-10 100 260)"/>
+                        <line x1="110" y1="230" x2="230" y2="285" stroke="#2D2D2D" stroke-width="2.5"/>
+                        <path d="M110 230 Q104 228, 106 222 T114 224" fill="none" stroke="#2D2D2D" stroke-width="2.5"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <p class="product-tag">Accessories</p>
+                    <h3 class="product-name">霧黑金屬滅燭護理三件組</h3>
+                    <p class="product-desc">含滅燭剪、滅燭罩與燭芯勾。搭配霧黑磁吸式硬殼工具防護盒。</p>
+                    <p class="product-price">NT$ 1,200</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>關於 AETHER</h4>
+                <p>我們相信氣味是空間與記憶的隱形延伸。透過極簡的視覺與純粹的調香，為都會職人打造無負擔的日常美學體驗。</p>
+            </div>
+            <div class="footer-column">
+                <h4>實體概念店</h4>
+                <p>台北市大安區青田街 00 號<br>週一至週日 13:00 - 21:00</p>
+            </div>
+            <div class="footer-column">
+                <h4>聯絡我們</h4>
+                <p>Email: contact@aether.com<br>Instagram: @aether_scent</p>
+                
+                <!-- ✨ 新增的個人履歷按鈕 ✨ -->
+                <a href="https://zitenghoung.github.io/" target="_blank" class="btn-resume">瀏覽個人履歷 →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const searchBtn = document.getElementById('searchBtn');
+        const bagBtn = document.getElementById('bagBtn');
+        const closeBagBtn = document.getElementById('closeBagBtn');
+        
+        const megaMenu = document.getElementById('megaMenu');
+        const searchDrawer = document.getElementById('searchDrawer');
+        const bagDrawer = document.getElementById('bagDrawer');
+        const globalOverlay = document.getElementById('globalOverlay');
+        const searchInput = document.getElementById('searchInput');
+
+        function closeAllPanels() {
+            megaMenu.classList.remove('active');
+            searchDrawer.classList.remove('active');
+            bagDrawer.classList.remove('active');
+            globalOverlay.classList.remove('active');
+            menuBtn.textContent = 'EXPLORE';
+            document.body.classList.remove('modal-open');
+        }
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = megaMenu.classList.contains('active');
+            closeAllPanels();
+            
+            if (!isOpen) {
+                megaMenu.classList.add('active');
+                globalOverlay.classList.add('active');
+                menuBtn.textContent = 'CLOSE';
+                document.body.classList.add('modal-open');
+            }
+        });
+
+        searchBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = searchDrawer.classList.contains('active');
+            closeAllPanels();
+            
+            if (!isOpen) {
+                searchDrawer.classList.add('active');
+                globalOverlay.classList.add('active');
+                document.body.classList.add('modal-open');
+                setTimeout(() => searchInput.focus(), 300);
+            }
+        });
+
+        bagBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = bagDrawer.classList.contains('active');
+            closeAllPanels();
+            
+            if (!isOpen) {
+                bagDrawer.classList.add('active');
+                globalOverlay.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+        });
+
+        closeBagBtn.addEventListener('click', closeAllPanels);
+        globalOverlay.addEventListener('click', closeAllPanels);
+    </script>
+</body>
+</html>

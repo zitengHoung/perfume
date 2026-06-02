@@ -1,0 +1,695 @@
+/* ==================== 基礎變數與重設 ==================== */
+:root {
+    --bg-color: #F5F4F0; /* 燕麥奶白 */
+    --text-main: #2C2C2C; /* 炭石深灰 */
+    --text-muted: #767676;
+    --accent: #8A9A86; /* 迷霧鼠尾草綠 */
+    --white: #FFFFFF;
+    --font-serif: 'Times New Roman', Times, 'Noto Serif TC', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* ==================== 導覽列 ==================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(245, 244, 240, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.nav-menu-trigger {
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.nav-right {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* ==================== 全局遮罩層 ==================== */
+.global-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.global-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== 1. EXPLORE 巨型選單 ==================== */
+.mega-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 999;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    padding: 140px 40px 60px 40px;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.mega-menu.active {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mega-menu-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.mega-column h3 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #2C2C2C;
+    padding-bottom: 8px;
+}
+
+.mega-column ul {
+    list-style: none;
+}
+
+.mega-column ul li {
+    margin-bottom: 16px;
+}
+
+.mega-column ul li a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mega-column ul li a .en {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-style: italic;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.mega-column ul li a .zh {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.mega-column ul li a:hover .en {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+/* ==================== 2. SEARCH 頂部滑出視窗 ==================== */
+.search-drawer {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 999;
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    padding: 120px 40px 60px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.search-drawer.active {
+    top: 0;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--text-main);
+    padding: 12px 0;
+    font-size: 20px;
+    font-family: var(--font-serif);
+    letter-spacing: 1px;
+    color: var(--text-main);
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #BCBBB6;
+    font-style: italic;
+}
+
+.search-hints {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.search-hints span {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.search-hints span:hover {
+    color: var(--text-main);
+}
+
+/* ==================== 3. BAG 右側滑出購物車 ==================== */
+.bag-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 420px;
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 1002;
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+}
+
+.bag-drawer.active {
+    right: 0;
+}
+
+.bag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #F0F0F0;
+    padding-bottom: 15px;
+}
+
+.bag-header h3 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.close-bag-btn {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.cart-items-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.cart-item-img {
+    width: 75px;
+    height: 75px;
+    background-color: #EAE9E4;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cart-item-detail {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-item-name {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.cart-item-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.cart-item-price {
+    font-size: 12px;
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+
+.cart-upsell {
+    background-color: var(--bg-color);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.upsell-title {
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.upsell-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upsell-info {
+    font-size: 12px;
+}
+
+.upsell-info span {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.add-upsell-btn {
+    font-size: 11px;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.add-upsell-btn:hover {
+    color: var(--accent);
+}
+
+.bag-footer {
+    border-top: 1px solid #F0F0F0;
+    padding-top: 20px;
+}
+
+.subtotal-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.subtotal-price {
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    padding: 15px 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #444;
+}
+
+/* ==================== 首頁主內容樣式 ==================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(rgba(245,244,240,0.4), rgba(245,244,240,0.4)), url('https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.btn-explore {
+    display: inline-block;
+    padding: 12px 36px;
+    border: 1px solid var(--text-main);
+    font-size: 12px;
+    letter-spacing: 3px;
+    transition: 0.4s;
+    background: transparent;
+}
+
+.btn-explore:hover {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+.showcase-section {
+    padding: 0;
+    background-color: var(--bg-color);
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.showcase-item {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.showcase-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    color: var(--white);
+    transition: background 0.4s;
+}
+
+.showcase-item:hover .showcase-img {
+    transform: scale(1.05);
+}
+
+.showcase-item:hover .showcase-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.5) 100%);
+}
+
+.showcase-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.showcase-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.products-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-image-wrapper {
+    position: relative;
+    background-color: #EAE9E4;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.03);
+}
+
+.product-info {
+    text-align: left;
+    padding: 0 4px;
+}
+
+.product-tag {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.product-name {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.product-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 14px;
+    font-family: var(--font-serif);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+footer {
+    background-color: #1A1A1A;
+    color: #999999;
+    padding: 8px 40px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: var(--white);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.footer-column p {
+    line-height: 2;
+    margin-bottom: 12px;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-top: 1px solid #2A2A2A;
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 11px;
+}
+
+/* SVG 佔位圖庫樣式 */
+.svg-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #EAE9E4;
+}
+
+/* ==================== 響應式斷點 (RWD) ==================== */
+@media (max-width: 1024px) {
+    .showcase-grid {
+        grid-template-columns: 1fr;
+    }
+    .showcase-item {
+        height: 400px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .mega-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    .bag-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .mega-menu-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- 頁尾個人履歷按鈕樣式 --- */
+.btn-resume {
+    display: inline-block;
+    margin-top: 15px;       /* 與上方聯絡資訊保持距離 */
+    padding: 8px 16px;      /* 按鈕內襯大小 */
+    font-size: 12px;        /* 文字大小 */
+    letter-spacing: 1px;    /* 字距拉開更有質感 */
+    color: var(--white);    /* 文字顏色 */
+    text-decoration: none;  /* 拔除超連結底線 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 細緻的半透明白邊框 */
+    background: transparent;
+    transition: all 0.3s ease; /* 讓滑鼠移上去的動畫變流暢 */
+}
+
+/* 滑鼠移上去時的互動效果 */
+.btn-resume:hover {
+    background-color: var(--white); /* 背景變白色 */
+    color: #1a1a1a;                 /* 文字變深色 */
+    border-color: var(--white);
+    cursor: pointer;
+}
